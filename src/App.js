@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { combineReducers, createStore } from "redux";
+import { Provider } from "react-redux";
+
+import "./App.css";
+
+import Counter from "./components/counter";
+import Cocktail from "./components/cocktail";
+
+import { counterReducer } from "./reducers/counterReducer";
+import Actions from "./reducers/actions";
 
 function App() {
+  const appStore = createStore(
+    combineReducers({
+      counterState: counterReducer,
+    })
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={appStore}>
+      <Counter />
+      <Cocktail />
+    </Provider>
   );
 }
 
