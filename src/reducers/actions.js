@@ -1,7 +1,17 @@
-const Actions = {
-  INCREASE_COUNTER: "INCREASE_COUNTER",
-  DECREASE_COUNTER: "DECREASE_COUNTER",
-  RESET_COUNTER: "RESET_COUNTER",
+const COUNTER = {
+  INCREASE: "INCREASE_COUNTER",
+  DECREASE: "DECREASE_COUNTER",
+  RESET: "RESET_COUNTER",
 };
 
-export default Actions;
+const increaseCounter = () => {
+  return { type: COUNTER.INCREASE };
+};
+const decreaseCounter = () => {
+  return { type: COUNTER.DECREASE };
+};
+const resetCounter = () => {
+  return { type: COUNTER.RESET };
+};
+
+export { COUNTER, increaseCounter, decreaseCounter, resetCounter };

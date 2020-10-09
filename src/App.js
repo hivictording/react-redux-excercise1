@@ -8,7 +8,6 @@ import Counter from "./components/counter";
 import Cocktail from "./components/cocktail";
 
 import { counterReducer } from "./reducers/counterReducer";
-import Actions from "./reducers/actions";
 
 function App() {
   const appStore = createStore(
@@ -19,7 +18,7 @@ function App() {
 
   return (
     <Provider store={appStore}>
-      <Counter />
+      <Counter name="Animal" />
       <Cocktail />
     </Provider>
   );
