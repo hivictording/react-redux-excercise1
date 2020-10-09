@@ -19,7 +19,7 @@ function App() {
   return (
     <Provider store={appStore}>
       <Counter name="Animal" />
-      <Cocktail />
+      <Cocktail name="Mario"/>
     </Provider>
   );
 }

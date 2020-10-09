@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+// css modules
+import styles from "./counter.module.css";
+
 import {
   COUNTER,
   increaseCounter,
@@ -16,11 +20,14 @@ const Counter = ({
   name,
 }) => {
   return (
-    <section className="py-5">
-      <h3 className="text-secondary text-center text-capitalize">counter</h3>
-      <h3 className="text-info text-center text-capitalize">{`${counter} ${name}${
-        counter > 1 ? "s" : ""
-      }`}</h3>
+    // <section className={`counter py-5`}> // this doesn't work
+    <section className={`${styles.counter} py-5`}>
+      <h3 className={`text-center text-capitalize ${styles.textRed}`}>
+        counter
+      </h3>
+      <h3
+        className={`text-center text-capitalize ${styles.textGreen}`}
+      >{`${counter} ${name}${counter > 1 ? "s" : ""}`}</h3>
       <div className="buttons mt-5 w-75 mx-auto d-flex justify-content-around">
         <button
           className="btn btn-primary text-capitalize"
