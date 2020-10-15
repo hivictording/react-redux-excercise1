@@ -10,6 +10,7 @@ import {
   increaseCounter,
   decreaseCounter,
   resetCounter,
+  addRandom,
 } from "../reducers/actions";
 
 const Counter = ({
@@ -17,6 +18,7 @@ const Counter = ({
   increaseCounter,
   decreaseCounter,
   resetCounter,
+  addRandom,
   name,
 }) => {
   return (
@@ -43,6 +45,12 @@ const Counter = ({
         </button>
         <button
           className="btn btn-primary text-capitalize"
+          onClick={() => addRandom(10)}
+        >
+          add random
+        </button>
+        <button
+          className="btn btn-primary text-capitalize"
           onClick={resetCounter}
         >
           reset
@@ -65,6 +73,7 @@ export default connect(mapStateToProps, {
   increaseCounter,
   decreaseCounter,
   resetCounter,
+  addRandom
 })(Counter);
 
 // const mapDispatchToProps = (dispatch, ownProps) => {
