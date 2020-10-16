@@ -11,6 +11,7 @@ import {
   decreaseCounter,
   resetCounter,
   addRandom,
+  saveCounter
 } from "../reducers/actions";
 
 const Counter = ({
@@ -19,44 +20,68 @@ const Counter = ({
   decreaseCounter,
   resetCounter,
   addRandom,
+  savedList,
+  saveCounter,
   name,
 }) => {
+
   return (
-    // <section className={`counter py-5`}> // this doesn't work
-    <section className={`${styles.counter} py-5`}>
-      <h3 className={`text-center text-capitalize ${styles.textRed}`}>
-        counter
-      </h3>
-      <h3
-        className={`text-center text-capitalize ${styles.textGreen}`}
-      >{`${counter} ${name}${counter > 1 ? "s" : ""}`}</h3>
-      <div className="buttons mt-5 w-75 mx-auto d-flex justify-content-around">
-        <button
-          className="btn btn-primary text-capitalize"
-          onClick={increaseCounter}
-        >
-          increase
-        </button>
-        <button
-          className="btn btn-primary text-capitalize"
-          onClick={decreaseCounter}
-        >
-          decrease
-        </button>
-        <button
-          className="btn btn-primary text-capitalize"
-          onClick={() => addRandom(10)}
-        >
-          add random
-        </button>
-        <button
-          className="btn btn-primary text-capitalize"
-          onClick={resetCounter}
-        >
-          reset
-        </button>
-      </div>
-    </section>
+    <div className={`${styles.counter} py-5`}>
+      {/* Counter */}
+      <section className="mb-5">
+        <h3 className={`text-center text-capitalize ${styles.textRed}`}>
+          counter
+        </h3>
+        <h3
+          className={`text-center text-capitalize ${styles.textGreen}`}
+        >{`${counter} ${name}${counter > 1 ? "s" : ""}`}</h3>
+        <div className="buttons mt-5 w-75 mx-auto d-flex justify-content-around">
+          <button
+            className="btn btn-primary text-capitalize"
+            onClick={increaseCounter}
+          >
+            increase
+          </button>
+          <button
+            className="btn btn-primary text-capitalize"
+            onClick={decreaseCounter}
+          >
+            decrease
+          </button>
+          <button
+            className="btn btn-primary text-capitalize"
+            onClick={() => addRandom(10)}
+          >
+            add random
+          </button>
+          <button
+            className="btn btn-primary text-capitalize"
+            onClick={resetCounter}
+          >
+            reset
+          </button>
+          <button
+            className="btn btn-success text-capitalize"
+            onClick={() => saveCounter(counter)}
+          >
+            save
+          </button>
+        </div>
+      </section>
+
+      {/* Saved List */}
+      <section className={`${styles.SavedList} w-75 mx-auto text-center text-capitalize text-info`}>
+        <h3>saved list</h3>
+        <ul className={styles.SavedListCenter}>
+          {(savedList && savedList.length > 0) && savedList.map((item,index) => {
+            return <li key={index} className={styles.SingleList}>
+              {item}
+            </li>
+          })}
+        </ul>
+      </section>
+    </div>
+    
   );
 };
 
@@ -65,15 +90,16 @@ Counter.propTypes = {
 };
 
 // connect function from react-redux
-const mapStateToProps = ({ counterState: { counter } }) => {
-  return { counter };
+const mapStateToProps = ({ counterState: { counter }, savedList }) => {
+  return { counter, savedList};
 };
 
 export default connect(mapStateToProps, {
   increaseCounter,
   decreaseCounter,
   resetCounter,
-  addRandom
+  addRandom,
+  saveCounter
 })(Counter);
 
 // const mapDispatchToProps = (dispatch, ownProps) => {

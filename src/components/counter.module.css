@@ -5,3 +5,19 @@
 .counter .textGreen {
   color: green;
 }
+
+.counter .SavedListCenter {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: around;
+}
+
+.SingleList {
+  padding: 1px 3px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  background-color: darkolivegreen;
+  color: white;
+}

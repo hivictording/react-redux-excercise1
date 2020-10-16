@@ -3,6 +3,7 @@ const COUNTER = {
   DECREASE: "DECREASE_COUNTER",
   ADD_RANDOM: 'ADD_RANDOM',
   RESET: "RESET_COUNTER",
+  SAVE: "SAVE"
 };
 
 const increaseCounter = () => {
@@ -17,5 +18,8 @@ const addRandom = (number) => {
 const resetCounter = () => {
   return { type: COUNTER.RESET };
 };
+const saveCounter = (value) => {
+  return {type: COUNTER.SAVE, value: value}
+}
 
-export { COUNTER, increaseCounter, decreaseCounter, resetCounter, addRandom };
+export { COUNTER, increaseCounter, decreaseCounter, resetCounter, addRandom,saveCounter };
