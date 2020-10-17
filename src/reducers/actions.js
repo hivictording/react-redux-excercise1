@@ -6,6 +6,11 @@ const COUNTER = {
   SAVE: "SAVE"
 };
 
+const COCKTAIL = {
+  GET_COCKTAIL: "GET_COCKTAIL",
+  SET_COCKTAIL: "SET_COCKTAIL"
+}
+
 const increaseCounter = () => {
   return { type: COUNTER.INCREASE };
 };
@@ -22,4 +27,15 @@ const saveCounter = (value) => {
   return {type: COUNTER.SAVE, value: value}
 }
 
-export { COUNTER, increaseCounter, decreaseCounter, resetCounter, addRandom,saveCounter };
+const getCocktail = () => {
+  return (dispatch) => {
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita').then(response => response.json()).then(data => {
+      dispatch(setCocktail(data.drinks))})
+  }
+}
+
+const setCocktail = (value) => {
+  return {type:COCKTAIL.SET_COCKTAIL,value:value}
+}
+
+export { COUNTER, COCKTAIL, increaseCounter, decreaseCounter, resetCounter, addRandom,saveCounter,getCocktail };
