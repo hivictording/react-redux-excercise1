@@ -1,4 +1,4 @@
-import {COCKTAIL} from './actions';
+import {COCKTAIL} from ".";
 const initState = ['Arsenal'];
 
 export const cocktailReducer = (state = initState, action) => {

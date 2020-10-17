@@ -6,7 +6,7 @@ import styles from './cocktail.module.css';
 import withCocktail from '../HO/withCocktail'
 import WithCocktail2 from '../HO/WithCocktail2'
 
-import {getCocktail} from '../reducers/actions'
+import {getCocktail} from '../reducers'
 
 const Cocktail = (props) => {
   const [search, setSearch] = React.useState('');

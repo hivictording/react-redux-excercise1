@@ -1,4 +1,4 @@
-import { COUNTER } from "./actions";
+import { COUNTER } from ".";
 
 const initState = {
   counter: 0,

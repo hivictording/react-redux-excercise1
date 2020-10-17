@@ -12,7 +12,7 @@ import {
   resetCounter,
   addRandom,
   saveCounter
-} from "../reducers/actions";
+} from "../reducers";
 
 const Counter = ({
   counter,
