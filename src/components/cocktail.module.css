@@ -1,0 +1,10 @@
+.Cocktail .CocktailCenter {
+  list-style: none;
+}
+
+.Cocktail .singleCocktail {
+  background-color: darkorange;
+  color: white;
+  max-width: 15em;
+  margin: 0.5em auto;
+}

@@ -1,4 +1,4 @@
-import {COUNTER, saveCounter} from './actions';
+import {COUNTER} from './actions';
 const initState = [];
 
 export const saveReducer = (state = initState,action) => {

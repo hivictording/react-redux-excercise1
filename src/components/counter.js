@@ -35,33 +35,33 @@ const Counter = ({
         <h3
           className={`text-center text-capitalize ${styles.textGreen}`}
         >{`${counter} ${name}${counter > 1 ? "s" : ""}`}</h3>
-        <div className="buttons mt-5 w-75 mx-auto d-flex justify-content-around">
+        <div className="buttons mt-5 w-75 mx-auto d-flex justify-content-around flex-wrap">
           <button
-            className="btn btn-primary text-capitalize"
+            className="btn btn-primary text-capitalize my-2"
             onClick={increaseCounter}
           >
             increase
           </button>
           <button
-            className="btn btn-primary text-capitalize"
+            className="btn btn-primary text-capitalize my-2"
             onClick={decreaseCounter}
           >
             decrease
           </button>
           <button
-            className="btn btn-primary text-capitalize"
+            className="btn btn-primary text-capitalize my-2"
             onClick={() => addRandom(10)}
           >
             add random
           </button>
           <button
-            className="btn btn-primary text-capitalize"
+            className="btn btn-primary text-capitalize my-2"
             onClick={resetCounter}
           >
             reset
           </button>
           <button
-            className="btn btn-success text-capitalize"
+            className="btn btn-success text-capitalize my-2"
             onClick={() => saveCounter(counter)}
           >
             save

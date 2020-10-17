@@ -27,9 +27,10 @@ const saveCounter = (value) => {
   return {type: COUNTER.SAVE, value: value}
 }
 
-const getCocktail = () => {
+const getCocktail = (search) => {
+  if (!search) {search='f'}
   return (dispatch) => {
-    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita').then(response => response.json()).then(data => {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${search}`).then(response => response.json()).then(data => {
       dispatch(setCocktail(data.drinks))})
   }
 }
