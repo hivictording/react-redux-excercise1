@@ -18,8 +18,6 @@ const Cocktail = (props) => {
     setSearch(event.target.value);
   }
 
-  console.log(props.cocktails);
-
   let cocktails;
   if (props.cocktails && props.cocktails.length > 0) {
     cocktails = (props.cocktails.map(cocktail => {
@@ -46,10 +44,6 @@ return <div className={styles.Cocktail}>
 
 Cocktail.propTypes = {};
 
-const mapStatetoProps = ({cocktailState}) => {
-  return {cocktails: cocktailState}
-  
-}
+const mapStatetoProps = ({cocktailState}) => {cocktails: cocktailState}
 
 export default connect(mapStatetoProps,{getCocktail})(withCocktail(Cocktail,"text-center text-warning","Ding"));
-// export default Cocktail;
